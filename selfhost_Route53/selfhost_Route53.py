@@ -83,6 +83,8 @@ class update_ip:
 
 
     def update_IP(self):
+        #TODO - Better handling of no config file!
+
         if (self.subDomain == None or self.subDomain == []):
             print("Settings Incomplete.")
             return 1
