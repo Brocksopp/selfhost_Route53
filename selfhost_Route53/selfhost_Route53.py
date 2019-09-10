@@ -4,6 +4,7 @@
 import route53 ##will require pip install
 import urllib.request
 import time
+import datetime
 import json
 from pathlib import Path
 
@@ -19,9 +20,22 @@ class update_ip:
          self.currentIP = None
          self.conn = None ##Variable for Amazon connection
          pass
-    
-
+     
     def main(self):
+         
+         while(True):
+
+             try:
+                 now = datetime.datetime.now()
+                 print(now.strftime("%Y-%m-%d %H:%M:%S"))
+                 self.run_ip_update()
+                 time.sleep(1*60*60)
+             except:
+                 print("Something went wrong..")
+             pass          
+         pass
+
+    def run_ip_update(self):
         self.get_config()
         self.get_PublicIP()
         self.get_connection()
@@ -127,5 +141,6 @@ class update_ip:
 
 
 instance = update_ip()
+#instance.run_ip_update()
 instance.main()
 pass
