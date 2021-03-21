@@ -29,9 +29,10 @@ class update_ip:
                  now = datetime.datetime.now()
                  print(now.strftime("%Y-%m-%d %H:%M:%S"))
                  self.run_ip_update()
-                 time.sleep(1*60*60)
+                 time.sleep(1*60)
              except:
                  print("Something went wrong..")
+                 time.sleep(1*60)
              pass          
          pass
 
@@ -45,7 +46,7 @@ class update_ip:
 
 
     def get_config(self):
-        filePath = Path("config.json")
+        filePath = Path("/data/config.json")
         if filePath.is_file():
             with open(filePath) as json_file:
                 data = json.load(json_file)
