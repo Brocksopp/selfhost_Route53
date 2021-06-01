@@ -37,7 +37,8 @@ class update_ip:
          pass
 
     def run_ip_update(self):
-        self.get_config()
+        if (self.get_config() == 0):
+            return 0
         self.get_PublicIP()
         self.get_connection()
         self.get_DomainDetails()
@@ -46,7 +47,8 @@ class update_ip:
 
 
     def get_config(self):
-        filePath = Path("/data/config.json")
+        print(Path.cwd())
+        filePath = Path("./data/config.json") + Path.home()
         if filePath.is_file():
             with open(filePath) as json_file:
                 data = json.load(json_file)
@@ -59,7 +61,7 @@ class update_ip:
             pass
         else:
             print("Config File Not Found.")
-            return 1
+            return 0
         pass
 
 
