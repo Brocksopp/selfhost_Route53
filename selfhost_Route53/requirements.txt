@@ -2,7 +2,7 @@ certifi==2019.3.9
 chardet==3.0.4
 idna==2.8
 lxml==4.3.3
-pip==10.0.1
+pip==19.2
 pytz==2019.1
 requests==2.21.0
 route53==1.0.1
