@@ -339,3 +339,4 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+selfhost_Route53/data/config.json

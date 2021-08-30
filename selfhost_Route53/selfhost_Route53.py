@@ -29,7 +29,7 @@ class update_ip:
                  now = datetime.datetime.now()
                  print(now.strftime("%Y-%m-%d %H:%M:%S"))
                  self.run_ip_update()
-                 time.sleep(1*60)
+                 time.sleep(1*120)
              except:
                  print("Something went wrong..")
                  time.sleep(1*60)
@@ -48,7 +48,7 @@ class update_ip:
 
     def get_config(self):
         print(Path.cwd())
-        filePath = Path("./data/config.json") + Path.home()
+        filePath = Path("./data/config.json") #+ Path.home()
         if filePath.is_file():
             with open(filePath) as json_file:
                 data = json.load(json_file)
@@ -57,6 +57,7 @@ class update_ip:
                 self.hostedZone = data["hostedZone"]
                 #self.domain = data["domain"]
                 self.subDomain = data["subDomain"]
+                print("Config File Loaded.")
                 pass
             pass
         else:
